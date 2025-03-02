@@ -1,15 +1,6 @@
 import express from "express";
-import {
-  getUser,
-  loginUser,
-  logoutUser,
-  registerUser,
-  updateUser,
-  userLoginStatus,
-} from "../controllers/auth/userController.js";
-import {
-  protect,
-} from "../middleware/authMiddleware.js";
+import {getUser,loginUser,logoutUser,registerUser,updateUser,userLoginStatus,} from "../controllers/auth/userController.js";
+import {protect} from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -19,7 +10,5 @@ router.get("/logout", logoutUser);
 router.get("/user", protect, getUser);
 router.patch("/user", protect, updateUser);
 router.get("/login-status", userLoginStatus);
-
-
 
 export default router;
